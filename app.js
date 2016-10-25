@@ -8,6 +8,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/phoenix-o
 
 // Import routers
 var userRouter = require("./server/routers/userRouter");
+var orderRouter = require("./server/routers/orderRouter");
 // Settings
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false})); // parse application/x-www-form-urlencoded
@@ -20,6 +21,7 @@ app.use("/", express.static(__dirname + "/dist"));
 
 // API routers
 app.use("/user", userRouter);
+app.use("/order", orderRouter);
 
 // Serve HTML files
 app.get('/', function (req, res) {
