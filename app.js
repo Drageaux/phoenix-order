@@ -7,7 +7,7 @@ var express = require("express"),
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/phoenix-order");
 
 // Import routers
-var playerRouter = require("./server/routers/playerRouter");
+var userRouter = require("./server/routers/userRouter");
 // Settings
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false})); // parse application/x-www-form-urlencoded
@@ -19,7 +19,7 @@ app.use("/node_modules", express.static(__dirname + "../node_modules"));
 app.use("/", express.static(__dirname + "/dist"));
 
 // API routers
-app.use("/player", playerRouter);
+app.use("/user", userRouter);
 
 // Serve HTML files
 app.get('/', function (req, res) {
@@ -28,6 +28,6 @@ app.get('/', function (req, res) {
 
 
 // Run app
-app.listen(process.env.PORT || '3000', function () {
-    console.log("I'm listening on PORT: " + (process.env.PORT || "3000"));
+app.listen(process.env.PORT || '4200', function () {
+    console.log("I'm listening on PORT: " + (process.env.PORT || "4200"));
 });
