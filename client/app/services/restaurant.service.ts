@@ -3,13 +3,19 @@ import {Http, Response} from "@angular/http";
 import {Observable} from "rxjs";
 
 @Injectable()
-export class OrderService {
+export class RestaurantService {
 
     constructor(private http: Http) {
     }
 
-    listAllOrders() {
-        return this.http.get("order/all")
+    searchRestaurants(query: string) {
+        return this.http.get("restaurant/search/" + query)
+            .map(res => res.json())
+            .catch(this.handleError);
+    }
+
+    selectRestaurant(restId: string) {
+        return this.http.get("restaurant/" + restId)
             .map(res => res.json())
             .catch(this.handleError);
     }

@@ -2,4 +2,12 @@
     {{title}}
 </h1>
 
-<button (click)="listAllOrders()">Test</button>
+<input [(ngModel)]="searchQuery">
+<button (click)="searchRestaurants()">Test</button>
+<h4>{{searchQuery}}</h4>
+
+<ul *ngIf="restaurants.length > 0">
+    <li *ngFor="let restaurant of restaurants">
+        <a (click)="selectRestaurant(restaurant.id)">{{restaurant.name}}</a>
+    </li>
+</ul>

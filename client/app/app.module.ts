@@ -3,6 +3,7 @@ import {NgModule} from "@angular/core";
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {AppComponent} from "./app.component";
+import {RestaurantService} from "./services/restaurant.service";
 import {OrderService} from "./services/order.service";
 
 @NgModule({
@@ -14,7 +15,7 @@ import {OrderService} from "./services/order.service";
         FormsModule,
         HttpModule
     ],
-    providers: [OrderService],
+    providers: [RestaurantService, OrderService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

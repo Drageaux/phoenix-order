@@ -3,11 +3,13 @@ var express = require("express"),
     path = require("path"),
     bodyParser = require("body-parser"),
     mongoose = require("mongoose");
+require('dotenv').config();
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/phoenix-order");
 
 // Import routers
 var userRouter = require("./server/routers/userRouter");
+var restaurantRouter = require("./server/routers/restaurantRouter");
 var orderRouter = require("./server/routers/orderRouter");
 // Settings
 var bodyParser = require('body-parser');
@@ -21,6 +23,7 @@ app.use("/", express.static(__dirname + "/dist"));
 
 // API routers
 app.use("/user", userRouter);
+app.use("/restaurant", restaurantRouter);
 app.use("/order", orderRouter);
 
 // Serve HTML files

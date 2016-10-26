@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {OrderService} from "./services/order.service";
+import {RestaurantService} from "./services/restaurant.service";
 
 @Component({
     selector: 'app-root',
@@ -8,12 +8,24 @@ import {OrderService} from "./services/order.service";
 })
 export class AppComponent {
     title = 'app works!';
+    searchQuery: string;
+    restaurants: any[] = [];
 
-    constructor(private _orderService:OrderService){
+    constructor(private _restaurantService:RestaurantService) {
     }
 
-    listAllOrders (){
-        this._orderService.listAllOrders()
-            .subscribe(() => {});
+    searchRestaurants(){
+        this._restaurantService.searchRestaurants(this.searchQuery)
+            .subscribe(res => {
+                this.restaurants = res;
+                console.log(res);
+            });
+    }
+
+    selectRestaurant(restId: string){
+        this._restaurantService.selectRestaurant(restId)
+            .subscribe(res => {
+                console.log(res);
+            });
     }
 }
