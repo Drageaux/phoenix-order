@@ -4,7 +4,7 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "develop": "ng build --dev && nodemon app.js",
+    "develop": "nodemon app.js",
     "start": "nodemon app.js",
     "lint": "tslint \"client/**/*.ts\"",
     "test": "ng test",
@@ -23,6 +23,7 @@
     "@angular/router": "~3.1.0",
     "body-parser": "^1.15.2",
     "core-js": "^2.4.1",
+    "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "mongoose": "^4.6.2",
     "rxjs": "5.0.0-beta.12",
