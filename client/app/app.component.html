@@ -8,6 +8,6 @@
 
 <ul *ngIf="restaurants.length > 0">
     <li *ngFor="let restaurant of restaurants">
-        <a (click)="selectRestaurant(restaurant.id)">{{restaurant.name}}</a>
+        <a (click)="selectRestaurant(restaurant.place_id)">{{restaurant.name}} ({{restaurant.vicinity}})</a>
     </li>
 </ul>
